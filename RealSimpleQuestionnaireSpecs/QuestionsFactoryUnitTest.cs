@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -71,7 +72,7 @@ namespace RealSimpleQuestionnaireSpecs
                 new Answer
                 {
                     QuestionId = 2,
-                    Result = 4.August(2014)
+                    Result = DateTime.UtcNow.AddHours(-6)
                 }
             };
 
@@ -93,6 +94,51 @@ namespace RealSimpleQuestionnaireSpecs
                 {
                     Id = 3,
                     Text = "What sites where affected?"
+                }
+            });
+        }
+
+        [TestMethod]
+        public void AfterTheDateWasOverDueWeShouldAskForTheReasonAndSites()
+        {
+            var factory = new QuestionsFactory();
+            var answers = new List<Answer>
+            {
+                new Answer
+                {
+                    QuestionId = 1,
+                    Result = "Maurice"
+                },
+                new Answer
+                {
+                    QuestionId = 2,
+                    Result = DateTime.UtcNow.AddDays(-8)
+                }
+            };
+
+            IEnumerable<Question> questions = factory.QuestionsFor(answers);
+
+            questions.ShouldBeEquivalentTo(new[]
+            {
+                new Question
+                {
+                    Id = 1,
+                    Text = "What is your name?"
+                },
+                new Question
+                {
+                    Id = 2,
+                    Text = "What was the event date?"
+                },
+                new Question
+                {
+                    Id = 3,
+                    Text = "What sites where affected?"
+                },
+                new Question
+                {
+                    Id = 6,
+                    Text = "Why was this not reported within a week?"
                 }
             });
         }

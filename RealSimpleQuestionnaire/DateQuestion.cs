@@ -17,7 +17,7 @@ namespace RealSimpleQuestionnaire
             internal override bool CanBeAsked(IEnumerable<Answer> answers)
             {
                 return answers.Any(a => a.QuestionId == 1);
-            }            
+            }
         }
     }
 }
