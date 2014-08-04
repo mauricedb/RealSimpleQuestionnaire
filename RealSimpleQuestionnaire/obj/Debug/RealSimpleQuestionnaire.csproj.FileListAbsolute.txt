@@ -1,0 +1,6 @@
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\bin\Debug\RealSimpleQuestionnaire.exe.config
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\bin\Debug\RealSimpleQuestionnaire.exe
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\bin\Debug\RealSimpleQuestionnaire.pdb
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\obj\Debug\RealSimpleQuestionnaire.csprojResolveAssemblyReference.cache
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\obj\Debug\RealSimpleQuestionnaire.exe
+C:\Temp\RealSimpleQuestionnaire\RealSimpleQuestionnaire\obj\Debug\RealSimpleQuestionnaire.pdb
