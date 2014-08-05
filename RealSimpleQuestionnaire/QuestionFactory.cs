@@ -12,7 +12,7 @@ namespace RealSimpleQuestionnaire
 
     public abstract class QuestionFactory
     {
-        internal virtual bool CanBeAsked(IEnumerable<Answer> answers)
+        internal virtual bool CanBeAsked(IEnumerable<Answer> answers, IDateTime dateTime)
         {
             return true;
         }

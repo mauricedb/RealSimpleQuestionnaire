@@ -13,7 +13,7 @@ namespace RealSimpleQuestionnaire
 
         public class Factory : QuestionFactory
         {
-            internal override bool CanBeAsked(IEnumerable<Answer> answers)
+            internal override bool CanBeAsked(IEnumerable<Answer> answers, IDateTime dateTime)
             {
                 return answers.Any(a => a.QuestionId == 3);
             }

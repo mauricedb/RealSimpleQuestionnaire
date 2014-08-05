@@ -45,6 +45,7 @@
     <Compile Include="AffectedSiteQuestion.cs" />
     <Compile Include="Answer.cs" />
     <Compile Include="DateQuestion.cs" />
+    <Compile Include="IDateTime.cs" />
     <Compile Include="NameQuestionFactory.cs" />
     <Compile Include="OverdueReasonQuestion.cs" />
     <Compile Include="Program.cs" />

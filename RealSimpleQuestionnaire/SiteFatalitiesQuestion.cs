@@ -5,15 +5,18 @@ namespace RealSimpleQuestionnaire
 {
     public class SiteFatalitiesQuestion : Question
     {
+        public string Site { get; set; }
+
         public SiteFatalitiesQuestion(string site)
         {
             Id = 5;
+            Site = site;
             Text = string.Format("Where there fatalities on site '{0}'?", site);
         }
 
         public class Factory : QuestionFactory
         {
-            internal override bool CanBeAsked(IEnumerable<Answer> answers)
+            internal override bool CanBeAsked(IEnumerable<Answer> answers, IDateTime dateTime)
             {
                 return answers.Any(a => a.QuestionId == 4 && (Severity) a.Result == Severity.High);
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -61,7 +62,10 @@ namespace RealSimpleQuestionnaireSpecs
         [TestMethod]
         public void AfterTheDateWeShouldAskForSites()
         {
-            var factory = new QuestionsFactory();
+            var dateTime = new Moq.Mock<IDateTime>();
+            dateTime.SetupGet(x => x.UtcNow).Returns(16.July(2014));
+
+            var factory = new QuestionsFactory(dateTime.Object);
             var answers = new List<Answer>
             {
                 new Answer
@@ -72,7 +76,7 @@ namespace RealSimpleQuestionnaireSpecs
                 new Answer
                 {
                     QuestionId = 2,
-                    Result = DateTime.UtcNow.AddHours(-6)
+                    Result = 15.July(2014)
                 }
             };
 
@@ -101,7 +105,10 @@ namespace RealSimpleQuestionnaireSpecs
         [TestMethod]
         public void AfterTheDateWasOverDueWeShouldAskForTheReasonAndSites()
         {
-            var factory = new QuestionsFactory();
+            var dateTime = new Moq.Mock<IDateTime>();
+            dateTime.SetupGet(x => x.UtcNow).Returns(25.July(2014));
+
+            var factory = new QuestionsFactory(dateTime.Object);
             var answers = new List<Answer>
             {
                 new Answer
@@ -112,7 +119,7 @@ namespace RealSimpleQuestionnaireSpecs
                 new Answer
                 {
                     QuestionId = 2,
-                    Result = DateTime.UtcNow.AddDays(-8)
+                    Result = 15.July(2014)
                 }
             };
 

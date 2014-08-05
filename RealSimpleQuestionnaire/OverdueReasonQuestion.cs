@@ -15,9 +15,9 @@ namespace RealSimpleQuestionnaire
 
         public class Factory : QuestionFactory<OverdueReasonQuestion>
         {
-            internal override bool CanBeAsked(IEnumerable<Answer> answers)
+            internal override bool CanBeAsked(IEnumerable<Answer> answers, IDateTime dateTime)
             {
-                return answers.Any(a => a.QuestionId == 2 && (DateTime) a.Result < DateTime.UtcNow.AddDays(-7));
+                return answers.Any(a => a.QuestionId == 2 && (DateTime)a.Result < dateTime.UtcNow.AddDays(-7));
             }
         }
     }
